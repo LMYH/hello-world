@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //then  catch   finally
+        /*
+            catch: 当执行出错时，执行
+            finally:不管出错还是成功，都会执行
+
+        */
+        const promies=new Promise((resolve,reject)=>{  
+            if(true){
+                resolve({msg:'ok',code:200});
+            }else{
+                reject({msg:'fail',code:500});
+            }
+        });
+
+        promies.then((data)=>{
+            console.log(data);
+        }).catch(err=>{
+            //当出错时，或者rejected执行ms
+            console.log(err);
+        }).finally(()=>{
+            console.log('不管如何，都会执行我');
+        });
+
+        // promies.then().catch()
+
+        const promies1=null;;//另一个
+        //.....
+
+        //当所有的promise状态都改变时(resolved,rejected)
+        Promise.all([promies,promies1]).then()
+        //只要有一个改变状态，则新对象即改变状态y
+        Promise.race([p1,p2,p3,p4]).then(()=>{
+            //渲染界面
+        });
+    </script>
+</body>
+</html>
